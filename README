@@ -1,1 +1,45 @@
-Predicting Harmful Algae Blooms for Environmental Harm Reduction
+# README
+
+## Project Overview
+Over the course of a semester, we built several models on NOAA and ARGO biochemical data to help predict harmful algae blooms. This project was conducted under the mentorship of Biointerphase and Break Through Tech AI @ MIT. 
+
+## Objectives and Goals
+The primary goal of this project was to leverage machine learning techniques to improve predictions of harmful algae bloom occurrences based on oceanographic and biochemical data. Key objectives included:
+- Aggregating and preprocessing datasets from NOAA and ARGO.
+- Developing and comparing predictive models to identify those with the highest accuracy and reliability.
+- Generating actionable insights to aid in early detection and potential mitigation strategies for harmful algae blooms.
+
+## Methodology
+1. **Data Collection and Preparation**
+   - **Original Dataset**: Retrieved NOAA data containing algae concentrations, locations, water temperature, and salinity. However, this dataset had excessive missing data and lacked key features, leading to its exclusion from final modeling.
+   - **Additional Dataset**: Incorporated BGC ARGO data, which included nutrient levels, salinity, and water temperature but lacked algae concentration information. This dataset was used to generate synthetic nutrient data for the NOAA dataset.
+   - Preprocessing steps included handling missing values, feature scaling, and encoding categorical variables.
+
+2. **Model Development**
+   - **Model 1**: Built using BGC ARGO data to predict nutrient levels based on salinity, location, and water temperature. This model used Random Forest Regressor, achieving high variability explanation but raised concerns about potential overfitting.
+   - **Model 2**: Trained using the augmented NOAA dataset with synthetic nutrient data from Model 1. Various regression models, including Random Forest, Gradient Boosting, and K-Nearest Neighbors, were tested. After log transformations and hyperparameter tuning, Random Forest achieved the best performance with an R² of 0.766 and an MAE of 1.09.
+
+3. **Evaluation Metrics**
+   - Assessed models using metrics such as R², mean absolute error (MAE), and feature importance.
+
+## Results and Key Findings
+- **Top Predictors**: Salinity, temperature, and location interaction (combined longitude and latitude effects) contributed ~60% of feature importance.
+- **Model Improvements**: Log transformations and feature refinement significantly enhanced Model 2's predictive accuracy compared to earlier iterations.
+- **Regional Insights**: Heatmaps indicated regions with higher probabilities of harmful algae blooms, particularly around Florida.
+
+## Visualizations
+- Heatmaps illustrating algae bloom probabilities in specific regions.
+- Temporal trends of nutrient and algae concentrations.
+- Feature importance plots for the predictive models.
+- Graphical comparisons of model performance before and after data transformations.
+
+## Potential Next Steps
+- **Model Refinement**: Continue improving accuracy by incorporating additional data sources such as satellite imagery and other environmental datasets.
+- **Tool Development**: Build a web-based interface for visualizing predictions and aiding Biointerphase in real-time monitoring and decision-making.
+- **Model Comparisons**: Explore alternative machine learning models to further enhance predictive power.
+- **Collaboration**: Partner with stakeholders to integrate findings into practical applications for algae bloom mitigation.
+
+## Acknowledgments
+This work was supported by Biointerphase and Break Through Tech AI @ MIT. We are grateful to our advisors Divya Nori, Mia Maksin, and Alyssa Long for their guidance throughout the project.
+
+
